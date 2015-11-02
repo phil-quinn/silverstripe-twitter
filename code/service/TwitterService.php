@@ -150,6 +150,7 @@ class TwitterService implements ITwitterService {
 			'Name' => $tweet->user->name,
 			'User' => $tweet->user->screen_name,
 			'AvatarUrl' => $tweet->user->profile_image_url,
+			'AvatarUrlNoProtocol' => preg_replace('/^https?:/i','',$tweet->user->profile_image_url),
 			'Content' => $this->parseText($tweet),
 			'Media'	=> $this->parseMedia($tweet),
 			'URLs'	=> $this->parseURLs($tweet),
